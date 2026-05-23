@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nongkrong Split</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+
+  <!-- Background grid -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+
+  <main class="app">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-tag">Stellar Testnet · Soroban</div>
+      <h1 class="logo">Nongkrong<span class="logo-accent">Split</span></h1>
+      <p class="tagline">On-chain group expense settlement. No calculations. No arguments.</p>
+    </header>
+
+    <!-- Contract ID bar -->
+    <section class="contract-bar">
+      <span class="contract-label">CONTRACT</span>
+      <span class="contract-id" id="contractIdDisplay">CBGHHRFBEXOKUYORNJKUVXJ4766KJL2KIOEPYZTNWKNIN63HHINNAZKX</span>
+      <a class="contract-link" id="stellarLabLink" href="#" target="_blank" rel="noopener">
+        View on Stellar Lab ↗
+      </a>
+    </section>
+
+    <!-- Main grid -->
+    <div class="grid">
+
+      <!-- ── Left column ── -->
+      <div class="col-left">
+
+        <!-- Add payment card -->
+        <div class="card" id="cardAddPayment">
+          <div class="card-header">
+            <span class="card-number">01</span>
+            <h2 class="card-title">Add Payment</h2>
+          </div>
+          <p class="card-desc">Record how much each person paid. Run this for every participant.</p>
+
+          <div class="form-group">
+            <label class="form-label">Name</label>
+            <input class="form-input" id="inputName" type="text" placeholder="e.g. Budi" autocomplete="off" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Amount (IDR)</label>
+            <input class="form-input" id="inputAmount" type="number" placeholder="e.g. 120000" min="0" />
+          </div>
+
+          <button class="btn btn-primary" id="btnAddPayment">
+            <span class="btn-label">Add Payment</span>
+            <span class="btn-icon">→</span>
+          </button>
+        </div>
+
+        <!-- Quick actions -->
+        <div class="card card-actions">
+          <div class="card-header">
+            <span class="card-number">02</span>
+            <h2 class="card-title">Actions</h2>
+          </div>
+
+          <button class="btn btn-secondary" id="btnGetParticipants">
+            <span class="btn-label">Get Participants</span>
+            <span class="btn-icon">↓</span>
+          </button>
+          <button class="btn btn-highlight" id="btnCalculate">
+            <span class="btn-label">Calculate Settlement</span>
+            <span class="btn-icon">⟳</span>
+          </button>
+          <button class="btn btn-danger" id="btnReset">
+            <span class="btn-label">Reset Round</span>
+            <span class="btn-icon">✕</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- ── Right column ── -->
+      <div class="col-right">
+
+        <!-- Participants panel -->
+        <div class="card card-participants" id="panelParticipants">
+          <div class="card-header">
+            <span class="card-number">03</span>
+            <h2 class="card-title">Participants</h2>
+            <span class="badge" id="participantCount">0</span>
+          </div>
+          <div class="participants-list" id="participantsList">
+            <div class="empty-state">No participants yet. Add payments to get started.</div>
+          </div>
+        </div>
+
+        <!-- Settlement panel -->
+        <div class="card card-settlement" id="panelSettlement">
+          <div class="card-header">
+            <span class="card-number">04</span>
+            <h2 class="card-title">Settlement</h2>
+          </div>
+          <div class="settlement-body" id="settlementBody">
+            <div class="empty-state">Run <strong>Calculate Settlement</strong> to see who owes what.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast">
+      <span class="toast-icon" id="toastIcon">✓</span>
+      <span class="toast-msg" id="toastMsg">Done</span>
+    </div>
+
+    <!-- Loading overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="loading-spinner"></div>
+      <div class="loading-text" id="loadingText">Submitting transaction…</div>
+    </div>
+
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
