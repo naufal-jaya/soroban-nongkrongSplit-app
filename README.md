@@ -5,6 +5,10 @@
 
 ---
 
+## Key
+
+Contract Address: CBGHHRFBEXOKUYORNJKUVXJ4766KJL2KIOEPYZTNWKNIN63HHINNAZKX
+
 ## The Problem
 
 When you go out with friends — makan bareng, traveling, nongkrong — someone always ends up paying for the group. Splitting it manually is:
